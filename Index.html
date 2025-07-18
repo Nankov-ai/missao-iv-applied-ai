@@ -142,6 +142,7 @@
             max-width: 900px;
             margin-top: 5px;
         }
+        /* Estilos para o grupo de cartões em destaque (Missão IV e Avaliação) - FUNDO REMOVIDO DAQUI */
         .mission-evaluation-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -149,6 +150,10 @@
             width: 100%;
             max-width: 900px;
             align-items: stretch;
+            /* REMOVIDO: background-color: #e0f2f7; */
+            /* REMOVIDO: padding: 25px; */
+            /* REMOVIDO: border-radius: 25px; */
+            /* REMOVIDO: box-shadow: inset 0 0 10px rgba(0,0,0,0.05); */
         }
         .card {
             background: white;
@@ -166,6 +171,12 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.12);
         }
+        /* Nova classe para o fundo dos cartões destacados individualmente */
+        .card-highlighted-bg {
+            background-color: #e0f2f7; /* O fundo azul clarinho */
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombra interna sutil */
+        }
+
         .card h2 {
             margin-top: 0;
             margin-bottom: 12px;
@@ -179,12 +190,12 @@
             line-height: 1.4;
             color: #555;
             margin-bottom: 12px;
-            flex-grow: 1;
+            flex-grow: 1; /* Permite que o parágrafo ocupe o espaço */
         }
         .btn {
-            display: flex;
+            display: flex; /* Permite alinhar o conteúdo interno (texto e emoji) */
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* Centra o conteúdo dentro do botão */
             gap: 8px;
             margin-top: 10px;
             padding: 10px 14px;
@@ -194,11 +205,16 @@
             border-radius: 10px;
             font-size: 0.95em;
             font-weight: bold;
-            width: 100%;
+            width: 100%; /* Voltou a ocupar a largura total */
             box-sizing: border-box;
             transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
             white-space: nowrap;
         }
+        /* Classe para alinhar o botão à base em cartões específicos */
+        .btn-align-bottom {
+            margin-top: auto; /* Empurra o botão para o fundo do flex container */
+        }
+
         .btn:hover {
             background-color: #155ab6;
             transform: translateY(-2px);
@@ -321,36 +337,44 @@
             </div>
 
             <div class="mission-evaluation-group">
-                <div class="card">
-                    <h2>Missão IV - Hiperfrio</h2>
-                    <p>Documentação das 6 oportunidades identificadas para esta missão.</p>
-                    <a class="btn btn-doc" href="https://docs.google.com/document/d/1wIU0h6Nd0y9QpjzPKT1SICfnVTZ_IkhSmqBtswI3xho/edit?usp=drive_link" target="_blank">
-                        <span class="emoji">📄</span> Identificação das Oportunidades
+                <div class="card card-highlighted-bg">
+                    <h2>Documento único da Missão IV</h2>
+                    <p>Aceda ao documento consolidado com a análise das oportunidades e a avaliação crítica da Missão III.</p>
+                    <a class="btn btn-doc btn-align-bottom" href="Documento_unico_da_Missao_IV.pdf" target="_blank">
+                        <span class="emoji">📄</span> Ver Documento Único
                     </a>
-                    <a class="btn btn-sheet" href="https://docs.google.com/spreadsheets/d/1PHX-q4BRyXp39ypXhSVlGALbbTqr33K2/edit?usp=drive_link&ouid=105022257334257869932&rtpof=true&sd=true" target="_blank">
+                </div>
+
+                <div class="card card-highlighted-bg">
+                    <h2>Missão IV - Hiperfrio (Detalhes)</h2>
+                    <p>Consulte a documentação específica das oportunidades, também detalhada no documento completo.</p>
+                    <a class="btn btn-doc" href="Identificacao_Oportunidades.pdf" target="_blank">
+                        <span class="emoji">📄</span> Identificação oportunidades
+                    </a>
+                    <a class="btn btn-sheet" href="Tabela_Oportunidades.pdf" target="_blank">
                         <span class="emoji">📊</span> Tabela de Oportunidades
                     </a>
                 </div>
 
-                <div class="card">
+                <div class="card card-highlighted-bg">
                     <h2>Avaliação do Projeto</h2>
                     <p>A sua opinião é fundamental! Ajude-nos a melhorar avaliando o trabalho da Missão IV.</p>
-                    <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/KdILJuUUjX2JffexE92n8E?mode=ac_t" target="_blank">
+                    <a class="btn btn-whatsapp btn-align-bottom" href="https://chat.whatsapp.com/KdILJuUUjX2JffexE92n8E" target="_blank">
                         <span class="emoji">✅</span> Começar Avaliação
                     </a>
                 </div>
             </div>
 
             <div class="content-section-group">
-                <div class="card">
+                <div class="card card-highlighted-bg">
                     <h2>Análise Crítica - Missão III</h2>
                     <p>Oiça a análise em áudio ou consulte o documento da Missão III.</p>
                     <audio controls>
-                        <source src="https://drive.google.com/file/d/1ziAzhJYBW9O7Fe3ViZ_j4tsWqpXjhuc7/view?usp=drive_link" type="audio/mpeg">
+                        <source src="analise-critica-audio.mp3" type="audio/mpeg">
                         O teu navegador não suporta áudio.
                     </audio>
-                    <a class="btn btn-doc" href="https://docs.google.com/document/d/1On46kvVcUc7xnYIuMA9RpmwBxjzBNrnIG47Ytoc4bSM/edit?usp=drive_link" target="_blank">
-                        <span class="emoji">📄</span> Ver Documento (DOCX)
+                    <a class="btn btn-doc" href="Analise_Critica_Missao_III.pdf" target="_blank">
+                        <span class="emoji">📄</span> Ver Documento (PDF)
                     </a>
                 </div>
 
@@ -371,7 +395,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2025 Missão IV | GT4 Grupo 3 | Fernando Costa I Maria Vieira I Miguel Anim I João Luís I José Gomes I Rui Baltazar</p>
+            <p>&copy; 2025 Missão IV | GT4 Grupo 3 | Fernando Costa I Maria Vieira | Miguel Anim I João Luís I José Gomes I Rui Baltazar</p>
             <p class="ai-footer-notice">Esta aplicação integra componentes de Inteligência Artificial.</p>
         </footer>
     </div>
