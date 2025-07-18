@@ -95,10 +95,10 @@
         main {
             flex: 1;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Agora todas as secções empilham verticalmente */
             align-items: center;
             padding: 25px 15px;
-            gap: 20px;
+            gap: 20px; /* Espaçamento entre os cartões/secções */
             overflow-y: auto; /* Permite scroll no main se o conteúdo for grande */
         }
         .highlight-card {
@@ -108,7 +108,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
             text-align: center;
             width: 100%;
-            max-width: 600px;
+            max-width: 600px; /* Mantém a largura máxima para o destaque */
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         .highlight-card:hover {
@@ -134,15 +134,10 @@
             margin-top: -10px;
             margin-bottom: 15px;
         }
-        /* REMOVIDO content-section-group, pois os elementos são agora directos na main */
-        .mission-evaluation-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
-            align-items: stretch;
-        }
+        /* REMOVIDO content-section-group e mission-evaluation-group do CSS, pois os elementos são directos na main */
+        /* .content-section-group { /* Removido */
+        /* .mission-evaluation-group { /* Removido */
+
         .card {
             background: white;
             border-radius: 18px;
@@ -154,8 +149,8 @@
             flex-direction: column;
             justify-content: space-between;
             height: auto;
-            width: 100%; /* Cartões preenchem a largura disponível na grelha ou na main */
-            max-width: none; /* Resetar max-width para flexibilidade */
+            width: 100%; /* Cartões preenchem a largura disponível na main */
+            max-width: 400px; /* Definição de uma largura máxima para todos os cartões */
         }
         .card:hover {
             transform: translateY(-4px);
@@ -263,12 +258,8 @@
             .ai-disclosure {
                 font-size: 0.7em;
             }
-            /* .content-section-group não existe mais, os cartões são directos */
-            .mission-evaluation-group {
-                grid-template-columns: 1fr;
+            .card { /* Em mobile, os cartões não têm largura máxima definida na main */
                 max-width: 95%;
-            }
-            .card {
                 padding: 15px;
             }
             .card h2 {
@@ -328,6 +319,25 @@
             </div>
 
             <div class="card card-highlighted-bg">
+                <h2>Documento único da Missão IV</h2>
+                <p>Aceda ao documento consolidado com a análise das oportunidades e a avaliação crítica da Missão III.</p>
+                <a class="btn btn-doc btn-align-bottom" href="Documento_unico_da_Missao_IV.pdf" target="_blank">
+                    <span class="emoji">📄</span> Ver Documento Único
+                </a>
+            </div>
+
+            <div class="card card-highlighted-bg">
+                <h2>Missão IV - Hiperfrio (Detalhes)</h2>
+                <p>Consulte a documentação específica das oportunidades, também detalhada no documento completo.</p>
+                <a class="btn btn-doc" href="Identificacao_Oportunidades.pdf" target="_blank">
+                    <span class="emoji">📄</span> Identificação oportunidades
+                </a>
+                <a class="btn btn-sheet" href="Tabela_Oportunidades.pdf" target="_blank">
+                    <span class="emoji">📊</span> Tabela de Oportunidades
+                </a>
+            </div>
+
+            <div class="card card-highlighted-bg">
                 <h2>Análise Crítica - Missão III (Detalhes)</h2>
                 <p>Oiça a análise em áudio ou consulte o documento da Missão III.</p>
                 <audio controls>
@@ -339,33 +349,12 @@
                 </a>
             </div>
 
-            <div class="mission-evaluation-group">
-                <div class="card card-highlighted-bg">
-                    <h2>Documento único da Missão IV</h2>
-                    <p>Aceda ao documento consolidado com a análise das oportunidades e a avaliação crítica da Missão III.</p>
-                    <a class="btn btn-doc btn-align-bottom" href="Documento_unico_da_Missao_IV.pdf" target="_blank">
-                        <span class="emoji">📄</span> Ver Documento Único
-                    </a>
-                </div>
-
-                <div class="card card-highlighted-bg">
-                    <h2>Missão IV - Hiperfrio (Detalhes)</h2>
-                    <p>Consulte a documentação específica das oportunidades, também detalhada no documento completo.</p>
-                    <a class="btn btn-doc" href="Identificacao_Oportunidades.pdf" target="_blank">
-                        <span class="emoji">📄</span> Identificação oportunidades
-                    </a>
-                    <a class="btn btn-sheet" href="Tabela_Oportunidades.pdf" target="_blank">
-                        <span class="emoji">📊</span> Tabela de Oportunidades
-                    </a>
-                </div>
-
-                <div class="card card-highlighted-bg">
-                    <h2>Avaliação da Missão IV</h2>
-                    <p>A sua opinião é fundamental! Ajude-nos a melhorar avaliando o trabalho da Missão IV.</p>
-                    <a class="btn btn-whatsapp btn-align-bottom" href="https://chat.whatsapp.com/KdILJuUUjX2JffexE92n8E" target="_blank">
-                        <span class="emoji">✅</span> Começar Avaliação
-                    </a>
-                </div>
+            <div class="card card-highlighted-bg">
+                <h2>Avaliação da Missão IV</h2>
+                <p>A sua opinião é fundamental! Ajude-nos a melhorar avaliando o trabalho da Missão IV.</p>
+                <a class="btn btn-whatsapp btn-align-bottom" href="https://chat.whatsapp.com/KdILJuUUjX2JffexE92n8E" target="_blank">
+                    <span class="emoji">✅</span> Começar Avaliação
+                </a>
             </div>
 
             <div class="card">
@@ -377,7 +366,7 @@
                 <a class="btn" href="https://docs.google.com/presentation/d/1W7NFxGzgThQ2zIH-q4MpHeKtNjCfKNrW/present?usp=sharing" target="_blank">
                     <span class="emoji">🎥</span> Missão II
                 </a>
-                <a class="btn" href="https://drive.google.com/file/d/1fnypY3ntZ6NbleWoP4lA7w2E1Yep55l5/view?usp=drive_link" target="_blank">
+                <a class="btn" href="https://docs.google.com/file/d/1fnypY3ntZ6NbleWoP4lA7w2E1Yep55l5/view?usp=drive_link" target="_blank">
                     <span class="emoji">📑</span> Missão III
                 </a>
             </div>
