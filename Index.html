@@ -134,15 +134,7 @@
             margin-top: -10px;
             margin-bottom: 15px;
         }
-        .content-section-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
-            margin-top: 5px;
-        }
-        /* Estilos para o grupo de cartões em destaque (Missão IV e Avaliação) - FUNDO REMOVIDO DAQUI */
+        /* REMOVIDO content-section-group, pois os elementos são agora directos na main */
         .mission-evaluation-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -150,10 +142,6 @@
             width: 100%;
             max-width: 900px;
             align-items: stretch;
-            /* REMOVIDO: background-color: #e0f2f7; */
-            /* REMOVIDO: padding: 25px; */
-            /* REMOVIDO: border-radius: 25px; */
-            /* REMOVIDO: box-shadow: inset 0 0 10px rgba(0,0,0,0.05); */
         }
         .card {
             background: white;
@@ -166,12 +154,14 @@
             flex-direction: column;
             justify-content: space-between;
             height: auto;
+            width: 100%; /* Cartões preenchem a largura disponível na grelha ou na main */
+            max-width: none; /* Resetar max-width para flexibilidade */
         }
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.12);
         }
-        /* Nova classe para o fundo dos cartões destacados individualmente */
+        /* Classe para o fundo dos cartões destacados individualmente */
         .card-highlighted-bg {
             background-color: #e0f2f7; /* O fundo azul clarinho */
             box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombra interna sutil */
@@ -205,7 +195,7 @@
             border-radius: 10px;
             font-size: 0.95em;
             font-weight: bold;
-            width: 100%; /* Voltou a ocupar a largura total */
+            width: 100%; /* Ocupa a largura total */
             box-sizing: border-box;
             transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
             white-space: nowrap;
@@ -273,7 +263,8 @@
             .ai-disclosure {
                 font-size: 0.7em;
             }
-            .content-section-group, .mission-evaluation-group {
+            /* .content-section-group não existe mais, os cartões são directos */
+            .mission-evaluation-group {
                 grid-template-columns: 1fr;
                 max-width: 95%;
             }
@@ -336,6 +327,18 @@
                 </a>
             </div>
 
+            <div class="card card-highlighted-bg">
+                <h2>Análise Crítica - Missão III (Detalhes)</h2>
+                <p>Oiça a análise em áudio ou consulte o documento da Missão III.</p>
+                <audio controls>
+                    <source src="analise-critica-audio.mp3" type="audio/mpeg">
+                    O teu navegador não suporta áudio.
+                </audio>
+                <a class="btn btn-doc" href="Analise_Critica_Missao_III.pdf" target="_blank">
+                    <span class="emoji">📄</span> Ver Documento
+                </a>
+            </div>
+
             <div class="mission-evaluation-group">
                 <div class="card card-highlighted-bg">
                     <h2>Documento único da Missão IV</h2>
@@ -357,7 +360,7 @@
                 </div>
 
                 <div class="card card-highlighted-bg">
-                    <h2>Avaliação do Projeto</h2>
+                    <h2>Avaliação da Missão IV</h2>
                     <p>A sua opinião é fundamental! Ajude-nos a melhorar avaliando o trabalho da Missão IV.</p>
                     <a class="btn btn-whatsapp btn-align-bottom" href="https://chat.whatsapp.com/KdILJuUUjX2JffexE92n8E" target="_blank">
                         <span class="emoji">✅</span> Começar Avaliação
@@ -365,32 +368,18 @@
                 </div>
             </div>
 
-            <div class="content-section-group">
-                <div class="card card-highlighted-bg">
-                    <h2>Análise Crítica - Missão III</h2>
-                    <p>Oiça a análise em áudio ou consulte o documento da Missão III.</p>
-                    <audio controls>
-                        <source src="analise-critica-audio.mp3" type="audio/mpeg">
-                        O teu navegador não suporta áudio.
-                    </audio>
-                    <a class="btn btn-doc" href="Analise_Critica_Missao_III.pdf" target="_blank">
-                        <span class="emoji">📄</span> Ver Documento (PDF)
-                    </a>
-                </div>
-
-                <div class="card">
-                    <h2>Trabalhos Realizados</h2>
-                    <p>Aceda ao histórico das Missões anteriores do grupo.</p>
-                    <a class="btn" href="https://drive.google.com/file/d/1eEPmpAtIbRS3K417RzaA4P5kf0I0_3gg/view?usp=drive_link" target="_blank">
-                        <span class="emoji">📊</span> Missão I
-                    </a>
-                    <a class="btn" href="https://docs.google.com/presentation/d/1W7NFxGzgThQ2zIH-q4MpHeKtNjCfKNrW/present?usp=sharing" target="_blank">
-                        <span class="emoji">🎥</span> Missão II
-                    </a>
-                    <a class="btn" href="https://docs.google.com/file/d/1fnypY3ntZ6NbleWoP4lA7w2E1Yep55l5/view?usp=drive_link" target="_blank">
-                        <span class="emoji">📑</span> Missão III
-                    </a>
-                </div>
+            <div class="card">
+                <h2>Trabalhos Realizados</h2>
+                <p>Aceda ao histórico das Missões anteriores do grupo.</p>
+                <a class="btn" href="https://drive.google.com/file/d/1eEPmpAtIbRS3K417RzaA4P5kf0I0_3gg/view?usp=drive_link" target="_blank">
+                    <span class="emoji">📊</span> Missão I
+                </a>
+                <a class="btn" href="https://docs.google.com/presentation/d/1W7NFxGzgThQ2zIH-q4MpHeKtNjCfKNrW/present?usp=sharing" target="_blank">
+                    <span class="emoji">🎥</span> Missão II
+                </a>
+                <a class="btn" href="https://drive.google.com/file/d/1fnypY3ntZ6NbleWoP4lA7w2E1Yep55l5/view?usp=drive_link" target="_blank">
+                    <span class="emoji">📑</span> Missão III
+                </a>
             </div>
         </main>
 
